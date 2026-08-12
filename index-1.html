@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maheima Kapur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4EFE6;
+    --ink: #241E17;
+    --ink-muted: #6B5D50;
+    --rule: #D9CFC0;
+    --accent: #7A2E1F;
+    --accent-hover: #5C2317;
+    --portrait-bg: #E5DDCD;
+    --max-content: 640px;
+    --pad-x: 24px;
+    --section-gap: 72px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); }
+
+  /* NAV */
+  nav {
+    padding: 20px var(--pad-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-content);
+    margin: 0 auto;
+  }
+  nav .logo {
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  nav .menu-btn {
+    background: none;
+    border: none;
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+
+  /* HERO */
+  .hero {
+    padding-top: 48px;
+    padding-bottom: var(--section-gap);
+  }
+
+  .eyebrow {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    color: var(--ink);
+  }
+
+  .hero p {
+    margin: 0 0 20px;
+    color: var(--ink);
+  }
+
+  .credentials {
+    color: var(--ink-muted);
+    font-size: 15px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .portrait {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 4/5;
+    background: var(--portrait-bg);
+    margin: 40px 0 40px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-muted);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+  .portrait::after {
+    content: 'portrait';
+  }
+
+  /* CTA */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--accent);
+    font-weight: 500;
+    transition: gap 0.2s ease;
+  }
+  .cta:hover {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+    gap: 12px;
+  }
+  .cta .arrow {
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    line-height: 1;
+    display: inline-block;
+    transform: translateY(-1px);
+  }
+
+  /* SECTIONS */
+  section {
+    padding-bottom: var(--section-gap);
+  }
+
+  h2 {
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0 0 24px;
+    color: var(--ink);
+  }
+
+  section p {
+    margin: 0 0 18px;
+  }
+
+  section p:last-of-type {
+    margin-bottom: 28px;
+  }
+
+  /* WHAT I OFFER */
+  .offer {
+    padding-bottom: 48px;
+  }
+  .offer h2 {
+    font-size: 26px;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    padding-bottom: var(--section-gap);
+  }
+  .testimonial {
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .testimonial:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .silhouette {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+  .testimonial-attr {
+    font-size: 14px;
+    color: var(--ink-muted);
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+  }
+  .testimonial blockquote {
+    margin: 0;
+    font-family: 'Newsreader', serif;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  /* WORKSHOPS */
+  .workshop {
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .workshop:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .workshop h3 {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .workshop p {
+    margin: 0;
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  /* REACH OUT */
+  .reach {
+    padding-bottom: 80px;
+  }
+  .reach .email {
+    font-family: 'Newsreader', serif;
+    font-size: 24px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 2px;
+    margin: 8px 0 32px;
+  }
+  .reach .email:hover {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+  }
+  .reach .alt-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px var(--pad-x) 48px;
+    max-width: var(--max-content);
+    margin: 0 auto;
+  }
+  footer .foot-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  footer .foot-name {
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  footer .foot-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  footer .foot-links a {
+    color: var(--ink-muted);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+  footer .foot-links a:hover {
+    border-bottom-color: var(--ink-muted);
+    color: var(--ink);
+  }
+  footer .foot-note {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 16px;
+  }
+
+  /* DESKTOP */
+  @media (min-width: 720px) {
+    :root {
+      --pad-x: 48px;
+      --section-gap: 112px;
+    }
+    body { font-size: 18px; }
+    nav { padding: 32px var(--pad-x); }
+    .hero { padding-top: 80px; }
+    h1 { font-size: 64px; }
+    h2 { font-size: 44px; }
+    .offer h2 { font-size: 30px; }
+    .testimonial blockquote { font-size: 22px; }
+    .workshop h3 { font-size: 25px; }
+    .portrait { max-width: 320px; }
+    .reach .alt-ctas {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">Maheima Kapur</span>
+  <button class="menu-btn">Menu</button>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="eyebrow">a note from me</span>
+    <h1>I'm Maheima.</h1>
+    <p>If you're here, chances are something in your life isn't sitting right. Somewhere you feel stuck. A pattern you keep noticing. A weight you've been carrying without quite naming.</p>
+    <p>I work with people on the parts of themselves that thinking and talking alone haven't been able to reach. Old beliefs. Feelings that have been running quietly. Sometimes the answer is close to the surface. Sometimes it lives further back, in younger versions of us, or in stories that came down through family.</p>
+    <p>Every person's map is different, and the pace is theirs to set. What surfaces gets space to settle in before we go further. My role is to hold the space and follow what's ready, not to push.</p>
+    <div class="portrait"></div>
+    <p class="credentials">I'm an internationally certified therapist. IIM Bangalore, class of 2005, with 20+ years in senior marketing roles alongside this practice. Based in Bengaluru, working online.</p>
+    <div style="margin-top: 20px;">
+      <a href="#" class="cta">More about me <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- WHAT I OFFER -->
+  <section class="offer">
+    <span class="eyebrow">what I offer</span>
+    <h2>Most of my work is 1:1.</h2>
+    <p>It takes different shapes depending on what someone comes with. Alongside private sessions, I currently run two focused programs.</p>
+  </section>
+
+  <!-- WORTH-GAP -->
+  <section>
+    <span class="eyebrow">on money</span>
+    <h2>Worth-Gap</h2>
+    <p>A 1:1 program for senior professionals sitting with a quiet, persistent feeling: that they're worth more than they've let themselves ask for.</p>
+    <p>They've had long careers, and things have gone well. What sits underneath isn't about the market or the numbers. It's about the small moments where they find themselves saying less, quoting lower, or not asking at all. Then walking away wondering why.</p>
+    <p>Worth-Gap works with what's actually driving those moments. Delivered 1:1, online, as either a 4-week or 12-week engagement depending on where a client is starting from. Fully screened at the start. Measured before and after.</p>
+    <a href="/worth-gap" class="cta">Show me my worth-gap <span class="arrow">→</span></a>
+  </section>
+
+  <!-- EMOTIONAL FITNESS -->
+  <section>
+    <span class="eyebrow">a daily practice</span>
+    <h2>Emotional Fitness</h2>
+    <p>A live, twice-daily group practice for building everyday emotional strength.</p>
+    <p>Most of us know what it's like to have a day that leaks. A short fuse with people we love. Sleep that doesn't quite restore. A tiredness sitting underneath everything. And most of us were never taught how to work with any of it.</p>
+    <p>Emotional Fitness treats this the way we treat physical fitness. 15 minutes in the morning to start steady. 15 minutes at night to put the day down. Same instructor, live on Zoom. Small enough to actually stick to.</p>
+    <p>The first 14 days are free.</p>
+    <a href="/emotional-fitness" class="cta">Join the free 14-day batch <span class="arrow">→</span></a>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <span class="eyebrow">what clients say</span>
+    <h2>In their words.</h2>
+
+    <div class="testimonial">
+      <div class="testimonial-header">
+        <svg class="silhouette" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="24" fill="#E5DDCD"/>
+          <path d="M24 12c-3.5 0-6.3 2.8-6.3 6.3s2.8 6.3 6.3 6.3 6.3-2.8 6.3-6.3S27.5 12 24 12zM24 27c-6 0-11 3.5-11 8v1h22v-1c0-4.5-5-8-11-8z" fill="#B8A992"/>
+        </svg>
+        <span class="testimonial-attr">PJ, 49, Bengaluru</span>
+      </div>
+      <blockquote>Working with Maheima has changed me as a person, so much so that sometimes I can't recognize myself. Her approach is meticulous and calm. Each session is effective, and the impact of the work is clearly visible in everyday life.</blockquote>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-header">
+        <svg class="silhouette" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="24" fill="#E5DDCD"/>
+          <path d="M24 11c-3.7 0-6.7 3-6.7 6.7 0 3 2 5.6 4.7 6.4-.2.5-.7 1.4-1.5 2.1C17 28.5 13 32 13 36h22c0-4-4-7.5-7.5-9.8-.8-.7-1.3-1.6-1.5-2.1 2.7-.8 4.7-3.4 4.7-6.4 0-3.7-3-6.7-6.7-6.7z" fill="#B8A992"/>
+        </svg>
+        <span class="testimonial-attr">SS, 56, Bengaluru</span>
+      </div>
+      <blockquote>A beautiful journey of healing and self-discovery. Her wisdom, warmth, and genuine care have made such a difference in my life. Each session has been a step closer towards feeling stronger, more balanced, and truly at peace.</blockquote>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-header">
+        <svg class="silhouette" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="24" fill="#E5DDCD"/>
+          <path d="M24 12c-3.5 0-6.3 2.8-6.3 6.3 0 2.5 1.4 4.6 3.5 5.6-.3 1-.9 2-1.7 2.6C16.5 28.5 13 32 13 36h22c0-4-3.5-7.5-6.5-9.5-.8-.6-1.4-1.6-1.7-2.6 2.1-1 3.5-3.1 3.5-5.6 0-3.5-2.8-6.3-6.3-6.3z" fill="#B8A992"/>
+        </svg>
+        <span class="testimonial-attr">AN, 35, Bengaluru</span>
+      </div>
+      <blockquote>Incredibly empathetic. Her ability to truly listen made a difference. She helped me develop strategies and coping mechanisms I could actually integrate into daily life. Professional and warm, in a space where I felt safe to explore.</blockquote>
+    </div>
+  </section>
+
+  <!-- WORKSHOPS -->
+  <section>
+    <span class="eyebrow">group work</span>
+    <h2>Workshops and group work</h2>
+
+    <div class="workshop">
+      <h3>MANAM at Manipal Academy of Higher Education</h3>
+      <p>A mental and emotional wellbeing program for their student community, built with the MAHE team. Shaped by what students actually said they needed.</p>
+    </div>
+
+    <div class="workshop">
+      <h3>Foundations of Fulfilment</h3>
+      <p>A group immersive on the inner blocks people carry around a fuller life. Guided practices, honest reflection, open sharing.</p>
+    </div>
+
+    <div class="workshop">
+      <h3>Your Money Story</h3>
+      <p>A 3-hour workshop for B-schools and mid-senior professionals. Each of us carries a money story we never wrote, mostly absorbed young from what wasn't said. This is a gentle session for finding yours, seeing where it came from, and taking home a simple tool to keep working with it. The bigger aim: slowly lowering the shame around money conversations in India.</p>
+    </div>
+  </section>
+
+  <!-- REACH OUT -->
+  <section class="reach">
+    <span class="eyebrow">reach out</span>
+    <h2>Get in touch.</h2>
+    <p>If any of this feels close, write to me directly. I read everything myself.</p>
+    <a href="mailto:projects.maheima@gmail.com" class="email">projects.maheima@gmail.com</a>
+    <div class="alt-ctas">
+      <a href="/worth-gap" class="cta">Worth-Gap assessment <span class="arrow">→</span></a>
+      <a href="/emotional-fitness" class="cta">Emotional Fitness batch <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <span class="foot-name">Maheima Kapur</span>
+    <div class="foot-links">
+      <a href="/about">About</a>
+      <a href="/worth-gap">Worth-Gap</a>
+      <a href="/emotional-fitness">Emotional Fitness</a>
+      <a href="/behind-the-sessions">Behind the Sessions</a>
+      <a href="mailto:projects.maheima@gmail.com">Contact</a>
+    </div>
+    <p class="foot-note">Bengaluru, India. Online sessions across time zones.</p>
+  </div>
+</footer>
+
+</body>
+</html>
