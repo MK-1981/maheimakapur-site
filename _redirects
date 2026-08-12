@@ -1,0 +1,9 @@
+# Proxy the two program landing pages to sub-paths of the main site.
+# Status 200 = rewrite (URL stays as maheimakapur.com/worth-gap).
+# Status 301 = redirect (URL changes to the netlify.app URL).
+
+/worth-gap              https://worth-gap.netlify.app             200
+/worth-gap/*            https://worth-gap.netlify.app/:splat      200
+
+/emotional-fitness      https://inner-fitness.netlify.app         200
+/emotional-fitness/*    https://inner-fitness.netlify.app/:splat  200
