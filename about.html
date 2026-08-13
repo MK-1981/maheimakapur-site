@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Maheima Kapur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF5EA; --bg-alt: #F2E9D8; --bg-deep: #E9DCC3;
+    --footer-bg: linear-gradient(160deg, #5C2318 0%, #33231A 75%);
+    --ink: #2B2318; --ink-on-dark: #F3ECE0; --ink-muted: #776552;
+    --ink-muted-on-dark: #B7A88E; --rule: #DED0B4; --rule-on-dark: #4E4030;
+    --accent: #8A3423; --accent-hover: #6B2818; --portrait-bg: #E5D9C0;
+    --max-content: 640px; --pad-x: 24px; --section-gap: 64px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif; font-size: 17px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); }
+  img { max-width: 100%; display: block; }
+
+  nav.site-nav { padding: 20px var(--pad-x); display: flex; justify-content: space-between;
+    align-items: center; max-width: var(--max-content); margin: 0 auto; position: relative; z-index: 20; }
+  nav.site-nav a.logo { font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+    color: var(--ink); letter-spacing: -0.005em; }
+  nav.site-nav .menu-btn { background: none; border: none; color: var(--ink);
+    font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; cursor: pointer; padding: 6px 0; font-weight: 500; }
+
+  .drawer { position: fixed; top: 0; right: 0; width: 100%; max-width: 360px; height: 100vh;
+    background: var(--bg-deep); padding: 24px var(--pad-x); transform: translateX(100%);
+    transition: transform 0.3s ease; z-index: 100; display: flex; flex-direction: column; }
+  .drawer.open { transform: translateX(0); }
+  .drawer-close { align-self: flex-end; background: none; border: none; color: var(--ink);
+    font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; cursor: pointer; padding: 6px 0; font-weight: 500; margin-bottom: 40px; }
+  .drawer-links { display: flex; flex-direction: column; gap: 24px; }
+  .drawer-links a { font-family: 'Lora', serif; font-size: 21px; color: var(--ink); letter-spacing: -0.005em; }
+  .drawer-backdrop { position: fixed; inset: 0; background: rgba(43, 35, 24, 0.4);
+    opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 99; }
+  .drawer-backdrop.open { opacity: 1; visibility: visible; }
+
+  .container { max-width: var(--max-content); margin: 0 auto; padding: 0 var(--pad-x); }
+  .eyebrow { font-family: 'Lora', serif; font-style: italic; font-size: 15px;
+    color: var(--ink-muted); letter-spacing: 0.01em; margin-bottom: 18px; display: block; }
+
+  .page-head { padding-top: 24px; padding-bottom: 40px; }
+  h1 { font-family: 'Lora', serif; font-weight: 500; font-size: 40px; line-height: 1.12;
+    letter-spacing: -0.015em; margin: 0 0 8px; color: var(--ink); }
+
+  .about-photo { width: 100%; max-width: 360px; aspect-ratio: 4/5; background: var(--portrait-bg);
+    margin: 0 0 40px; border-radius: 3px; overflow: hidden; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  section { padding-bottom: var(--section-gap); }
+  .about-body p { margin: 0 0 22px; font-size: 18px; }
+  .about-body p:last-child { margin-bottom: 0; }
+
+  .cta { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif;
+    font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+    padding: 8px 0; border-bottom: 1px solid var(--accent); font-weight: 500; transition: gap 0.2s ease; }
+  .cta:hover { color: var(--accent-hover); border-bottom-color: var(--accent-hover); gap: 12px; }
+  .cta .arrow { font-family: 'Lora', serif; font-size: 17px; line-height: 1; display: inline-block; transform: translateY(-1px); }
+
+  .about-close { background: var(--bg-deep); }
+  .about-close .inner { max-width: var(--max-content); margin: 0 auto; padding: var(--section-gap) var(--pad-x); }
+  .about-close h2 { font-family: 'Lora', serif; font-weight: 500; font-size: 28px; margin: 0 0 16px; letter-spacing: -0.01em; }
+  .about-close p { margin: 0 0 24px; font-size: 18px; }
+
+  footer { background: var(--footer-bg); color: var(--ink-on-dark); padding: 52px var(--pad-x) 44px; }
+  footer .foot-inner { max-width: var(--max-content); margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
+  footer .foot-name { font-family: 'Lora', serif; font-size: 26px; color: var(--ink-on-dark); letter-spacing: -0.005em; margin: 0; }
+  footer .foot-links { display: flex; flex-direction: column; gap: 13px; }
+  footer .foot-links a { color: var(--ink-on-dark); font-size: 15px; letter-spacing: 0.01em;
+    border-bottom: 1px solid transparent; padding-bottom: 2px; display: inline-block; width: fit-content; }
+  footer .foot-links a:hover { border-bottom-color: var(--ink-on-dark); }
+  footer .foot-social { display: flex; gap: 20px; align-items: center; padding-top: 22px; border-top: 1px solid var(--rule-on-dark); }
+  footer .foot-social a { display: inline-flex; align-items: center; gap: 10px; color: var(--ink-muted-on-dark); font-size: 14px; }
+  footer .foot-social a:hover { color: var(--ink-on-dark); }
+  footer .foot-social svg { width: 19px; height: 19px; fill: currentColor; }
+  footer .foot-note { font-size: 13px; color: var(--ink-muted-on-dark); margin: 0; padding-top: 6px; }
+
+  @media (min-width: 720px) {
+    :root { --pad-x: 48px; --section-gap: 100px; }
+    body { font-size: 18px; }
+    nav.site-nav { padding: 32px var(--pad-x); }
+    nav.site-nav a.logo { font-size: 22px; }
+    .page-head { padding-top: 40px; }
+    h1 { font-size: 56px; }
+    .about-photo { max-width: 400px; }
+    .about-close h2 { font-size: 32px; }
+    .drawer-links a { font-size: 25px; }
+    footer { padding: 72px 48px 56px; }
+    footer .foot-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    footer .foot-name { font-size: 32px; }
+    footer .foot-social { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/" class="logo">Maheima Kapur</a>
+  <button class="menu-btn" onclick="document.querySelector('.drawer').classList.add('open'); document.querySelector('.drawer-backdrop').classList.add('open');">Menu</button>
+</nav>
+
+<div class="drawer-backdrop" onclick="document.querySelector('.drawer').classList.remove('open'); this.classList.remove('open');"></div>
+<aside class="drawer">
+  <button class="drawer-close" onclick="document.querySelector('.drawer').classList.remove('open'); document.querySelector('.drawer-backdrop').classList.remove('open');">Close</button>
+  <div class="drawer-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/worth-gap">Worth-Gap</a>
+    <a href="/emotional-fitness">Emotional Fitness</a>
+    <a href="/behind-the-sessions">Behind the Sessions</a>
+    <a href="mailto:projects.maheima@gmail.com">Contact</a>
+  </div>
+</aside>
+
+<div class="container">
+  <section class="page-head">
+    <span class="eyebrow">about me</span>
+    <h1>About</h1>
+  </section>
+
+  <div class="about-photo">
+    <img src="/assets/images/hero/maheima-hero.webp" alt="Maheima Kapur" onerror="this.style.display='none'">
+  </div>
+
+  <section class="about-body">
+    <p>I'm an internationally certified hypno-regression therapist and family constellation facilitator. At the heart of it, I'm someone deeply curious about what makes us who we are.</p>
+    <p>My work is about the layers underneath. Old beliefs, inherited patterns, emotional blocks that formed long before we had language for them. When we look at these with kindness, something real begins to shift. You start to feel at home in yourself again.</p>
+    <p>Before this, I spent nearly two decades in marketing. Much of that time was spent on consumer psychology, understanding how people make choices, what influences them, and how culture and family and upbringing shape the way we see the world. Over time, I began to notice a deeper layer under all of that. How much of what we feel and repeat isn't just from this life, or even from us alone. Some of it comes from the younger versions of ourselves still carrying old hurt. Some from our families, going back further than we can see. Some from experiences that predate memory itself.</p>
+    <p>That understanding shapes how I work. Warm, intuitive, gentle. No judgment, no quick fixes. A safe space to look at what's been running quietly, and to release what isn't yours to carry.</p>
+    <p>If any of this feels close to what you're looking for, write to me. I'd love to talk.</p>
+  </section>
+</div>
+
+<section class="about-close">
+  <div class="inner">
+    <h2>Ready to begin?</h2>
+    <p>The best first step is a short conversation. No pressure, no commitment. Just a chance to understand what you're carrying and whether this work is the right fit.</p>
+    <a href="/contact" class="cta">Reach out <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div><p class="foot-name">Maheima Kapur</p></div>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/worth-gap">Worth-Gap</a>
+      <a href="/emotional-fitness">Emotional Fitness</a>
+      <a href="/behind-the-sessions">Behind the Sessions</a>
+      <a href="mailto:projects.maheima@gmail.com">Contact</a>
+    </div>
+    <div class="foot-social">
+      <a href="https://instagram.com/innerpeace.school" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @innerpeace.school
+      </a>
+    </div>
+    <p class="foot-note">Bengaluru, India</p>
+  </div>
+</footer>
+
+</body>
+</html>
