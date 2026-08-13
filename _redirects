@@ -7,3 +7,4 @@
 
 /emotional-fitness      https://inner-fitness.netlify.app         200
 /emotional-fitness/*    https://inner-fitness.netlify.app/:splat  200
+
