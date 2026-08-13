@@ -2,9 +2,12 @@
 # Status 200 = rewrite (URL stays as maheimakapur.com/worth-gap).
 # Status 301 = redirect (URL changes to the netlify.app URL).
 
+/about              /about.html              200
+/contact            /contact.html            200
+/behind-the-sessions /behind-the-sessions.html 200
+
 /worth-gap              https://worth-gap.netlify.app             200
 /worth-gap/*            https://worth-gap.netlify.app/:splat      200
 
 /emotional-fitness      https://inner-fitness.netlify.app         200
 /emotional-fitness/*    https://inner-fitness.netlify.app/:splat  200
-
